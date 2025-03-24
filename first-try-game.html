@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First AI Game - 智能扫雷</title>
+    <style>
+        :root {
+            --apple-gray1: #f5f5f7;
+            --apple-gray2: #86868b;
+            --apple-gray3: #1d1d1f;
+            --apple-blue: #0071e3;
+        }
+
+        body {
+            font-family: -apple-system, "PingFang SC";
+            background: var(--apple-gray1);
+            color: var(--apple-gray3);
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .game-container {
+            background: white;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2px;
+            background: var(--apple-gray1);
+            border: 2px solid var(--apple-gray1);
+            margin: 1.5rem 0;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.12s ease;
+        }
+
+        .cell:hover {
+            background: var(--apple-gray1);
+        }
+
+        .revealed {
+            background: var(--apple-gray1);
+        }
+
+        .mine {
+            background: #ff453a !important;
+        }
+
+        .flag {
+            background: #ffd60a !important;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .status {
+            font-size: 1.2rem;
+            color: var(--apple-gray2);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 First AI Game</h1>
+        <p>人工智能时代的第一款经典扫雷游戏</p>
+        
+        <div class="game-controls">
+            <button onclick="startGame()">开始新游戏</button>
+            <div class="status" id="status">剩余地雷：10</div>
+            <div class="status" id="timer">已用时间：0秒</div>
+        </div>
+
+        <div id="grid" class="grid" style="grid-template-columns: repeat(10, 40px);"></div>
+
+        <h2>🎮 游戏规则</h2>
+        <p>点击格子揭开方块，右键标记地雷。数字表示周围8格中的地雷数量，标记所有地雷即可获胜！</p>
+
+        <h2>🏆 当前状态</h2>
+        <p id="gameState">游戏准备中，点击「开始新游戏」启动</p>
+    </div>
+
+    <script>
+        let gridSize = 10;
+        let mineCount = 10;
+        let timer = 0;
+        let timerInterval;
+        let grid = [];
+
+        function createGrid() {
+            let gridHTML = '';
+            for(let i=0; i<gridSize; i++) {
+                for(let j=0; j<gridSize; j++) {
+                    gridHTML += `<div class="cell" 
+                        data-x="${j}" 
+                        data-y="${i}"
+                        onclick="revealCell(${j},${i})"
+                        oncontextmenu="flagCell(event,${j},${i})"></div>`;
+                }
+            }
+            document.getElementById('grid').innerHTML = gridHTML;
+        }
+
+        function startGame() {
+            // 初始化游戏逻辑
+            clearInterval(timerInterval);
+            timer = 0;
+            document.getElementById('timer').textContent = `已用时间：${timer}秒`;
+            document.getElementById('gameState').textContent = "游戏中...";
+            
+            // 生成地雷
+            grid = Array(gridSize).fill().map(() => Array(gridSize).fill(0));
+            let minesPlaced = 0;
+            while(minesPlaced < mineCount) {
+                let x = Math.floor(Math.random()*gridSize);
+                let y = Math.floor(Math.random()*gridSize);
+                if(grid[y][x] !== 'M') {
+                    grid[y][x] = 'M';
+                    minesPlaced++;
+                }
+            }
+
+            // 启动计时器
+            timerInterval = setInterval(() => {
+                timer++;
+                document.getElementById('timer').textContent = `已用时间：${timer}秒`;
+            }, 1000);
+
+            createGrid();
+        }
+
+        function revealCell(x, y) {
+            const cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+            if(grid[y][x] === 'M') {
+                cell.classList.add('mine');
+                gameOver(false);
+            } else {
+                cell.classList.add('revealed');
+                // 计算周围地雷数量逻辑
+                // 此处需要添加完整游戏逻辑
+            }
+        }
+
+        function flagCell(event, x, y) {
+            event.preventDefault();
+            const cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+            cell.classList.toggle('flag');
+        }
+
+        function gameOver(isWin) {
+            clearInterval(timerInterval);
+            document.getElementById('gameState').textContent = isWin ? 
+                "🎉 恭喜你获胜！" : "💥 游戏结束！";
+        }
+
+        // 初始化游戏
+        startGame();
+    </script>
+</body>
+</html>
