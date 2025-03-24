@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivors - Monster Survival Action Game | Play Online</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Play Survivors, an intense monster survival action game where you fight against waves of enemies and upgrade your character to become the ultimate survivor.">
+    <meta name="keywords" content="Survivors, monster survival, action game, online game, survival game">
+    <meta name="author" content="Survivors Game">
+    <link rel="canonical" href="https://survivors.vercal.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://survivors.vercal.app/">
+    <meta property="og:title" content="Survivors - Monster Survival Action Game">
+    <meta property="og:description" content="Play Survivors, an intense monster survival action game where you fight against waves of enemies and upgrade your character to become the ultimate survivor.">
+    <meta property="og:image" content="https://survivors.vercal.app/survivors-gameplay.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://survivors.vercal.app/">
+    <meta property="twitter:title" content="Survivors - Monster Survival Action Game">
+    <meta property="twitter:description" content="Play Survivors, an intense monster survival action game where you fight against waves of enemies and upgrade your character to become the ultimate survivor.">
+    <meta property="twitter:image" content="https://survivors.vercal.app/survivors-gameplay.jpg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom purple glow effect */
+        .purple-glow {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+        }
+        /* Improve iframe responsiveness */
+        .game-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-purple-900 to-indigo-900 shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Survivors</h1>
+            <p class="text-lg md:text-xl text-gray-300 mt-2">Battle endless monster hordes in this fast-paced survival action game.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Game Section -->
+        <section class="mb-12">
+            <div class="max-w-4xl mx-auto bg-gray-800 p-4 rounded-lg shadow-lg purple-glow">
+                <div class="game-container">
+                    <iframe 
+                        src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                        class="responsive-iframe rounded-md"
+                        allowfullscreen
+                        loading="lazy"
+                        title="Play Survivors Online"
+                    ></iframe>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="fullscreen-btn" class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        Play Fullscreen
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-4">About Survivors</h2>
+            <p class="text-gray-300 mb-6 text-lg">
+                Survivors is an action-packed survival game where you face endless waves of monsters. As time progresses, your enemies become stronger and more numerous. Collect experience, level up, and choose new weapons and abilities to survive longer in this challenging world.
+            </p>
+            
+            <div class="border-l-4 border-purple-500 pl-4 italic text-gray-400 mb-6">
+                "How long can you survive in a world overrun by monsters? Adapt, upgrade, and overcome impossible odds in this addictive survival game."
+            </div>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-4">How to Play</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Controls</h3>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li class="mb-1">Use WASD or arrow keys to move your character</li>
+                        <li class="mb-1">Weapons fire automatically at the nearest enemies</li>
+                        <li class="mb-1">Collect gems to gain experience and level up</li>
+                        <li class="mb-1">Press ESC or P to pause the game</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Tips</h3>
+                    <ul class="list-disc pl-5 text-gray-300">
+                        <li class="mb-1">Keep moving to avoid being surrounded</li>
+                        <li class="mb-1">Focus on complementary upgrades for your build</li>
+                        <li class="mb-1">Prioritize enemies that pose the greatest threat</li>
+                        <li class="mb-1">Collect all experience gems before they disappear</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-4">Game Features</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Multiple Characters</h3>
+                    <p class="text-gray-300">Choose from different characters with unique starting weapons and abilities.</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Weapon Upgrades</h3>
+                    <p class="text-gray-300">Discover and upgrade various weapons and passive items to create powerful combinations.</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Challenging Enemies</h3>
+                    <p class="text-gray-300">Face different types of monsters with unique behaviors and abilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay Section -->
+        <section class="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-4">Gameplay</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Progression System</h3>
+                    <p class="text-gray-300 mb-4">
+                        As you defeat enemies, you'll collect experience gems that allow you to level up. Each level grants you a choice of upgrades that can dramatically change your gameplay strategy.
+                    </p>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Dynamic Difficulty</h3>
+                    <p class="text-gray-300">
+                        The longer you survive, the more challenging the game becomes. Enemies will grow stronger, appear in larger numbers, and new enemy types will be introduced.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Build Variety</h3>
+                    <p class="text-gray-300 mb-4">
+                        With dozens of weapons and passive items to discover, no two runs are the same. Experiment with different builds to find the most powerful combinations.
+                    </p>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Special Events</h3>
+                    <p class="text-gray-300">
+                        Watch out for special events and boss battles that will put your skills to the ultimate test. Defeat powerful bosses to earn unique rewards.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-purple-900 to-indigo-900 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Survivors. All rights reserved.</p>
+            <p class="text-sm text-gray-500 mt-2">Play Survivors online for free on any device. No download required.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add fullscreen functionality
+        document.getElementById('fullscreen-btn').addEventListener('click', function() {
+            const iframe = document.querySelector('iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
